@@ -17,6 +17,9 @@ yew = { version = "^0.17", features = ["web_sys"] }
 
 anna_design_system = { git = "https://github.com/open-marketplace-applications/anna", branch = "dev" }
 
+identity_core= { git = "https://github.com/iotaledger/identity.rs", branch = "Feat(bindings)/add-wasm-binding" }
+identity_crypto= { git = "https://github.com/iotaledger/identity.rs", branch = "Feat(bindings)/add-wasm-binding" }
+
 [dev-dependencies]
 wasm-bindgen-test = "0.3"
 
