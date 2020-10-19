@@ -1,7 +1,7 @@
 use log::*;
-use serde_derive::{Deserialize, Serialize};
 use yew::prelude::*;
 
+use anna_design_system::{Theme, Page, Container, atoms::H1};
 
 pub struct App {
     link: ComponentLink<Self>,
@@ -33,22 +33,28 @@ impl Component for App {
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
             Msg::UpdateHash(value) => {
+                info!("value: {:?}", value);
                 self.hash = value;
             }
         }
-        true
+        false
     }
 
     fn view(&self) -> Html {
         info!("rendered!");
         html! {
-            <div>
-                <input
-                    oninput=self.link.callback(|e: InputData| Msg::UpdateHash(e.value))
-                    class="hash"
-                    placeholder="paste your hash"
-                    value=&self.hash />
-            </div>
+            <Theme>
+                <Page>
+                    <Container>
+                        <H1>{ "DID Explorer" }</H1>
+                        <input
+                            oninput=self.link.callback(|e: InputData| Msg::UpdateHash(e.value))
+                            class="hash"
+                            placeholder="paste your hash"
+                            value=&self.hash />
+                    </Container>
+                </Page>
+            </Theme>
         }
     }
 }

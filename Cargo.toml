@@ -1,7 +1,7 @@
 [package]
-name = "yew-wasm-pack-template"
+name = "did-explorer"
 version = "0.2.0"
-authors = ["Yew Maintainers <maintainers@yew.rs"]
+authors = ["huhn <huhn.dev@gmail.com"]
 edition = "2018"
 
 [lib]
@@ -9,14 +9,13 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 log = "0.4"
-strum = "0.17"
-strum_macros = "0.17"
-serde = "1"
-serde_derive = "1"
 wasm-bindgen = "0.2.58"
 wasm-logger = "0.2"
 wee_alloc = { version = "0.4.4", optional = true }
-yew = "0.17"
+yew = { version = "^0.17", features = ["web_sys"] }
+# css-in-rust = { version = "0.4.1", features = ["yew_integration"] }
+
+anna_design_system = { git = "https://github.com/open-marketplace-applications/anna", branch = "dev" }
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3"
@@ -26,3 +25,4 @@ version = "0.3.4"
 features = [
   'KeyboardEvent',
 ]
+
